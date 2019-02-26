@@ -168,7 +168,7 @@ setInterval(pollETNXTicker, 250, 'checked');
 //     TO.toApi(tradeData,method).then((result) => {
 
 //         let theParse = JSON.parse(result);
-
+//         var data = JSON.parse(result);
 //         if(method==="orders"){
 //             status = theParse.success;
 //             buy = theParse.buy;
@@ -177,9 +177,7 @@ setInterval(pollETNXTicker, 250, 'checked');
 //             console.log(theParse.buy)
 //             console.log(theParse.sell)
 //         }
-
-        
-
+// example response of tickers
 //         // { success: true,
 //         //   initialprice: '0.00002102',
 //         //   price: '0.00002001',
@@ -188,185 +186,10 @@ setInterval(pollETNXTicker, 250, 'checked');
 //         //   volume: '2.41009239',
 //         //   bid: '0.00002001',
 //         //   ask: '0.00002057' }
-//         console.log(theParse)
-//         // triggerBuyOrder()
-//         var data = JSON.parse(result);
         
-//         var coins;
-//         // for(i=0;i<=result.length;i++){
-//         //     console.log(result[i])
-//         // }
-//         // console.log(data)
 // });
 //
 
-
-
-let dance = function(){
-
-    function getRndInteger(min, max) {
-  return (Math.random() * (max - min) + min).toFixed(8);
-}
-
-    let dumpAgain = function(){
-
-    const tradeData = {
-    username: API_KEY,
-    password: API_SECRET,
-    uuid: uuid,
-    method: method,
-    market: "BTC-ETNX",
-    quantity: parseFloat(getRndInteger(3300.10301990,7300.10301990)),
-    price: parseFloat(marketPrice)
-};
-    TO.toApi(tradeData,method).then((result) => {
-console.log(result);
-});
-    }
-
-    let cancelDumper = function(){
-        
-    const tradeData = {
-    username: API_KEY,
-    password: API_SECRET,
-    uuid: uuid,
-    method: method,
-    market: "BTC-ETNX"
-};
-    TO.toApi(tradeData,method).then((result) => {
-        dumpAgain()
-console.log(result);
-});
-    }
-
-    let liquidTrigger = function(){
-        
-    const tradeData = {
-    username: API_KEY,
-    password: API_SECRET,
-    uuid: uuid,
-    method: method,
-    market: "BTC-ETNX",
-    quantity: parseFloat(getRndInteger(421.10301990,650.10301990)),
-    price: parseFloat(marketPrice)
-};
-    TO.toApi(tradeData,method).then((result) => {
-        cancelDumper()
-console.log(result);
-});
-    }
-    let dumperOrder = function(){
-        
-    const tradeData = {
-    username: API_KEY,
-    password: API_SECRET,
-    uuid: uuid,
-    method: method,
-    market: "BTC-ETNX",
-    quantity: parseFloat(getRndInteger(3300.10301990,7300.10301990)),
-    price: parseFloat(marketPrice)
-};
-    TO.toApi(tradeData,method).then((result) => {
-        liquidTrigger()
-console.log(result);
-});
-    }
-    let buyBack = function(){
-        
-    const tradeData = {
-    username: API_KEY,
-    password: API_SECRET,
-    uuid: uuid,
-    method: method,
-    market: "BTC-ETNX",
-    quantity: parseFloat(getRndInteger(600.10301990,800.10301990)),
-    price: parseFloat(marketPrice)
-};
-    TO.toApi(tradeData,method).then((result) => {
-console.log(result);
-});
-    }
-    let trapSalesOrder = function(){
-        
-    const tradeData = {
-    username: API_KEY,
-    password: API_SECRET,
-    uuid: uuid,
-    method: method,
-    market: "BTC-ETNX",
-    quantity: parseFloat(getRndInteger(600.10301990,800.10301990)),
-    price: parseFloat(marketPrice)
-};
-    TO.toApi(tradeData,method).then((result) => {
-        buyBack()
-        dumperOrder()
-console.log(result);
-});
-    }
-    let layAnotherBuy = function(){
-        
-    const tradeData = {
-    username: API_KEY,
-    password: API_SECRET,
-    uuid: uuid,
-    method: method,
-    market: "BTC-ETNX",
-    quantity: parseFloat(getRndInteger(4.10301990,8.10301990)),
-    price: parseFloat(marketPrice)
-};
-    TO.toApi(tradeData,method).then((result) => {
-        trapSalesOrder()
-console.log(result);
-});
-    }
-    let triggerSalesOrder = function(){
-        
-    const tradeData = {
-    username: API_KEY,
-    password: API_SECRET,
-    uuid: uuid,
-    method: method,
-    market: "BTC-ETNX",
-    quantity: parseFloat(getRndInteger(4.10301990,8.10301990)),
-    price: parseFloat(marketPrice)
-};
-    TO.toApi(tradeData,method).then((result) => {
-        layAnotherBuy()
-console.log(result);
-});
-    }
-    let triggerBuyOrder = function(){
-        
-    const tradeData = {
-    username: API_KEY,
-    password: API_SECRET,
-    uuid: uuid,
-    method: method,
-    market: "BTC-ETNX",
-    quantity: parseFloat(getRndInteger(4.10301990,8.10301990)),
-    price: parseFloat(marketPrice)
-};
-    TO.toApi(tradeData,method).then((result) => {
-        triggerSalesOrder()
-console.log(result);
-});
-    }
-
-// start trading
-    const tradeData = {
-    username: API_KEY,
-    password: API_SECRET,
-    uuid: uuid,
-    method: method,
-    market: "BTC-ETNX",
-    quantity: parseFloat(getRndInteger(4.10301990,8.10301990)),
-    price: parseFloat(marketPrice)
-};
-    TO.toApi(tradeData,method).then((result) => {
-        triggerBuyOrder()
-console.log(result);
-});
-}
 
 
 // TO.toApi(tradeData,method).then((result) => {
